@@ -1,0 +1,96 @@
+@tailwind base;
+
+@layer base{
+    input{
+        @apply outline-none border-none ;
+    }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+
+.mainSectionMoleculesCommonProps{
+    
+
+    @apply rounded-xl py-3 px-4
+    
+
+}
+
+.hideScrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hideScrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+
+
+
+  .shake{
+    animation: shake-animation 2s infinite;
+
+  }
+
+
+  @-webkit-keyframes shake-animation {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); } 
+    10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
+
+
+
+.flip-box {
+  background-color: transparent;
+  
+  
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  /* width: 100%;
+  height: 100%; */
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  /* transform: rotateX(180deg); */
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  /* position: absolute; */
+  /* width: 100%;
+  height: 100%; */
+
+  -webkit-backface-visibility: hidden;  /* Safari */
+  backface-visibility: hidden;
+}
+
+
+
+/* Style the back side */
+.flip-box-back {
+
+  transform: rotateX(180deg);
+}
