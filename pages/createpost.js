@@ -16,6 +16,7 @@ import Navbar from "../components/organisms/Navbar";
 
 import { motion,useAnimation} from 'framer-motion'
 
+import {InfoForUser} from '../components/InfoForUser'
 
 import withAuth from "../components/hoc";
 
@@ -149,6 +150,21 @@ setTimeout(() => {
     return(
 
         <>
+
+<InfoForUser>
+
+
+<li>For validation Yup JS is being used here. A post length should have atleast 15 characters otherwise an error will occur</li>
+
+<li>You can also upload images.</li>
+
+<li>If you upload images they will definetely take some time to upload however for <span className="text-yellow-500 font-bold">SAVING TIME</span> the images are being compressed before they get sent to the firebase storage. Compression reduces the image size and this results in faster uploads.</li>
+
+<li>You can also preview images before you publish them</li>
+
+</InfoForUser>
+
+
         <Navbar/>
         <Container>
 

@@ -23,6 +23,7 @@ import { userPostsAction } from '../redux/actions';
 
 import withAuth from '../components/hoc';
 import { InfoForUser } from '../components/InfoForUser';
+import Link from 'next/link';
 
 
 
@@ -60,7 +61,14 @@ const {showUserStoriesModal} = stateCheck;
 
     <>
     
-{/* <InfoForUser/> */}
+<InfoForUser>
+
+
+<li>We are fetching the posts on client side because any kind of server side rendering is not required here. For user personal pages we do not need any kind of SEO or any other advantage of server side rendering</li>
+
+<li>If you post anything by vising the <span className='text-yellow-500 font-bold'><Link href={'/createpost'}> Create Post Page </Link></span>you will see your post on this page or if you have become friend with someone you will also see thier posts on this page</li>
+
+</InfoForUser>
 
 
     <Navbar/>

@@ -47,6 +47,8 @@ const {redirectRequired} = gsspData;
         }else{
             const getFirebaseAdminAuth = await (await (import('../firebaseAdmin'))).default.auth();
     
+
+            
             const getDecodedToken = await  getFirebaseAdminAuth.verifyIdToken(IDToken).then(decodedToken=>{
               return decodedToken;
             }).catch(err=>{
@@ -69,7 +71,7 @@ const {redirectRequired} = gsspData;
 
 const {email,name} = getDecodedToken
 
-
+console.log(getDecodedToken);
 
 const {photoURL} = await getFirebaseAdminAuth.getUser(getDecodedToken.uid);
 

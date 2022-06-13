@@ -8,7 +8,7 @@ import { checkFriendRequestOnProfilePage, fetchingUserForProfilePage, fetchUserP
 import Navbar  from '../../components/organisms/Navbar';
 
 
-const clone = require('rfdc')()
+import {InfoForUser} from '../../components/InfoForUser'
 
 
 import {getCookies} from 'cookies-next'
@@ -56,6 +56,16 @@ const handleHideOnHover = (event)=>{
 
         <>
 
+
+        <InfoForUser>
+
+<li>On this page you can see the posts of your future friend. <span className='text-yellow-500 font-bold'> TILL NOW </span>you can see other people posts on thier profile page without adding them. This behaviour is temporary and can be changed easily.</li>
+
+<li>It is just for saving your time so you can see the user profile page without adding them however if you want to see other people posts on your timeline you must send them a request and <span className='text-yellow-500 font-bold'>IF THEY ACCEPTS YOUR REQUEST</span> you will see thier posts on your timeline and they will also see your posts on thier timeline</li>
+
+
+        </InfoForUser>
+
 <Navbar/>
 
         <Container>
@@ -72,7 +82,7 @@ const handleHideOnHover = (event)=>{
 
 <div className="gridContainer flex flex-wrap gap-4 py-8  justify-center">
 
-{parsedPosts.map(eachPost=>{
+{parsedPosts.length>1?parsedPosts.map(eachPost=>{
   
   const {userUploadedImagesTemprary,id} = eachPost;
 
@@ -88,7 +98,7 @@ const handleHideOnHover = (event)=>{
 
   })
 
-})}
+}):<h1 className='mt-8 font-bold text-3xl'>The user has not posted anything yet</h1>}
 
 
  { showRemainingImagesModal.showModal&& <UserProfilePageModal parsedPosts={parsedPosts} showRemainingImagesModal={{showRemainingImagesModal,setShowRemainingImagesModal}}  /> }

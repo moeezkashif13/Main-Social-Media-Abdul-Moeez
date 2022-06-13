@@ -12,8 +12,12 @@ import { fetchReceivedRequests, fetchSentRequests, queryForGettingUserByName } f
 
 import {getLoggedInUserUID} from '../utils/authenticationReleated'
 
+import {InfoForUser} from '../components/InfoForUser'
+
+import {ModalAndCSSLoader} from '../components/atoms/ModalAndCSSLoader'
 
 import withAuth from '../components/hoc';
+import Link from 'next/link'
 
 
 const clone = require('rfdc')();
@@ -236,6 +240,20 @@ temp();
 
         
         <>
+
+        <InfoForUser>
+
+
+<li>You will see different users here. If you want to send them a request you can click the Add Friend button or you can also visit thier profile.</li>
+
+<li>If the user has already sent you a friend request then the Add Friend button will be replaced by Accept button </li>
+
+
+<li>If the user has already set a profile image it will be shown otherwise a default image will be used</li>
+
+<li>You can also set your profile picture by visiting the <span className='text-yellow-500 font-bold'><Link href={'/settings'}>Settings Page</Link></span></li>
+
+        </InfoForUser>
         
         <Navbar/>
 
@@ -290,7 +308,7 @@ temp();
 <div className='py-8 flex flex-wrap justify-center gap-y-5 gap-x-5 '>
 
 
-{items?search(items).map((eachItem,index)=>{
+{items.length>0?search(items).map((eachItem,index)=>{
 
 
     
@@ -298,7 +316,12 @@ temp();
 
 return <UserProfileSearchResult key={index} email={email} photoURL={photoURL} requestSent={requestSent} isAFriendRequest={isAFriendRequest} uid={eachItem.id} name={{firstname,lastname}}/>
 
-}):<h1 className='text-4xl text-center mx-auto'>Search User by name</h1>}
+}):
+
+<ModalAndCSSLoader/>
+
+
+}
 
 
 
